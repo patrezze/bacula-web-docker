@@ -12,6 +12,7 @@ RUN cd /tmp \
 
 COPY ./docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY ./docker/config.php /var/www/html/application/config/config.php
+COPY ./docker/tsuru.yaml /tsuru.yaml
 
 RUN chown -R www-data: /var/www/html \
   && chmod -R 755 /var/www/html \
