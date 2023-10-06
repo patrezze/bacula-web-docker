@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bacula-web
+spec:
+  selector:
+    matchLabels:
+      app: bacula-web
+  template:
+    metadata:
+      labels:
+        app: bacula-web
+    spec:
+      containers:
+        - name: bacula-web
+          image: bacula-web-docker:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80

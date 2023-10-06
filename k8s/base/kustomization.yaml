@@ -1,0 +1,7 @@
+apiVersion: v1beta1
+kind: Kustomization
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
