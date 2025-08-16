@@ -1,18 +1,23 @@
-version: "3.1"
-
 services:
   web:
     build: .
     image: bacula-web-docker:latest
+    entrypoint: ["/bin/sh", "-c", "chown -R www-data:www-data /var/www/html/application/assets/protected && exec apache2-foreground"]
     ports:
       - "8080:80"
     environment:
-      BW_LANGUAGE: ""
-      BW_LABEL: ""
-      BW_HOST: "" 
-      BW_LOGIN: ""
-      BW_PASSWORD: ""
-      BW_DB_NAME: ""
-      BW_DB_TYPE: ""
-      BW_DB_PORT: ""
+      BW_SHOW_INACTIVE_CLIENTS: ${BW_SHOW_INACTIVE_CLIENTS}
+      BW_LANGUAGE: ${BW_LANGUAGE}
+      BW_LABEL: ${BW_LABEL}
+      BW_HOST: ${BW_HOST}
+      BW_LOGIN: ${BW_LOGIN}
+      BW_PASSWORD: ${BW_PASSWORD}
+      BW_DB_NAME: ${BW_DB_NAME}
+      BW_DB_TYPE: ${BW_DB_TYPE}
+      BW_DB_PORT: ${BW_DB_PORT}
     container_name: "bacula_web"
+    volumes:
+      - bacula_web_data:/var/www/html/application/assets/protected
+
+volumes:
+  bacula_web_data:
