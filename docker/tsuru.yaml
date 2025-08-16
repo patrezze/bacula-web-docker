@@ -1,4 +1,0 @@
-healthcheck:
-  path: /index.php?page=test
-  method: GET
-  status: 200
