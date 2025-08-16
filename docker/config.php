@@ -13,10 +13,10 @@ function env($key, $default = null, $castBool = false) {
 }
 
 // General settings
-$config['show_inactive_clients'] = env('BW_SHOW_INACTIVE_CLIENTS', false, true);
-$config['hide_empty_pools']      = env('BW_HIDE_EMPTY_POOLS', false, true);
+$config['show_inactive_clients'] = env('BW_SHOW_INACTIVE_CLIENTS', true, true);
+$config['hide_empty_pools']      = env('BW_HIDE_EMPTY_POOLS', true, true);
 $config['datetime_format']       = env('BW_DATETIME_FORMAT', 'Y-m-d H:i:s');
-$config['enable_users_auth']     = env('BW_ENABLE_USERS_AUTH', false, true);
+$config['enable_users_auth']     = env('BW_ENABLE_USERS_AUTH', true, true);
 $config['debug']                 = env('BW_DEBUG', false, true);
 $config['language']              = env('BW_LANGUAGE', 'en_US');
 $config['rows_per_page']         = (int) env('BW_ROWS_PER_PAGE', 25);
